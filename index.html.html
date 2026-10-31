@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Morgan Check · Blog de pensamiento crítico</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f3f6fb; --surface:#ffffff; --ink:#14213d; --muted:#4f5d7a; --line:#d3dbe9;
+  --mark:#ffe14d; --mark-ink:#14213d; --ok:#1f7a4d; --bad:#b3261e; --accent:#2446c9;
+  box-sizing:border-box; padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){--bg:#0e1626; --surface:#16213a; --ink:#e8edf8; --muted:#a3b0cc; --line:#2a3858; --mark:#e6c82e; --mark-ink:#0e1626; --ok:#5fd09a; --bad:#ff8a80; --accent:#8fa8ff;}
+}
+:root[data-theme="dark"]{--bg:#0e1626; --surface:#16213a; --ink:#e8edf8; --muted:#a3b0cc; --line:#2a3858; --mark:#e6c82e; --mark-ink:#0e1626; --ok:#5fd09a; --bad:#ff8a80; --accent:#8fa8ff;}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Source Serif 4",Georgia,serif;font-size:18px;line-height:1.7}
+a{color:var(--accent)}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:4px}
+h1,h2,h3{font-family:"Bricolage Grotesque","Helvetica Neue",Arial,sans-serif;line-height:1.15;margin:0}
+.wrap{max-width:1040px;margin:0 auto;padding:0 20px}
+header.top{border-bottom:1px solid var(--line)}
+header.top .wrap{display:flex;justify-content:space-between;align-items:center;padding-top:16px;padding-bottom:16px}
+.brand{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:22px;text-decoration:none;color:var(--ink)}
+.brand span{background:var(--mark);color:var(--mark-ink);padding:0 6px;border-radius:3px}
+nav a{font-family:"Bricolage Grotesque",sans-serif;font-weight:500;font-size:16px;margin-left:18px;text-decoration:none;color:var(--muted)}
+nav a:hover{color:var(--ink)}
+.hero{padding:56px 0 40px;display:grid;grid-template-columns:1.15fr .85fr;gap:40px;align-items:center}
+.hero h1{font-size:clamp(34px,5.4vw,58px);font-weight:800;letter-spacing:-.02em}
+.hero p.lead{font-size:20px;color:var(--muted);max-width:34em;margin:18px 0 0}
+.claim{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:22px}
+.claim small{font-family:"Bricolage Grotesque",sans-serif;color:var(--muted);font-size:14px}
+.claim blockquote{margin:10px 0 14px;font-size:19px;font-style:italic}
+.claim mark{background:var(--mark);color:var(--mark-ink);padding:0 3px;border-radius:2px}
+.verdict{display:flex;gap:10px;align-items:baseline;border-top:1px solid var(--line);padding-top:12px;font-size:16px}
+.verdict b{font-family:"Bricolage Grotesque",sans-serif;color:var(--bad);font-size:18px}
+main{padding-bottom:64px}
+.grid{display:grid;grid-template-columns:2fr 1fr;gap:40px;align-items:start}
+.list h2,.side h2{font-size:26px;margin-bottom:18px}
+.post{display:block;width:100%;text-align:left;font:inherit;color:inherit;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:22px;margin-bottom:16px;cursor:pointer}
+.post:hover{border-color:var(--accent)}
+.post h3{font-size:24px;margin:6px 0 8px}
+.post p{margin:0;color:var(--muted);font-size:17px}
+.tag{font-family:"Bricolage Grotesque",sans-serif;font-size:14px;font-weight:700;color:var(--accent)}
+.meta{font-family:"Bricolage Grotesque",sans-serif;font-size:14px;color:var(--muted)}
+.side{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:22px}
+.side ul{padding-left:20px;margin:0}
+.side li{margin-bottom:10px}
+article.full{max-width:680px;margin:40px auto 0}
+article.full h1{font-size:clamp(30px,5vw,46px);font-weight:800;letter-spacing:-.015em;margin:8px 0 12px}
+article.full h2{font-size:26px;margin:34px 0 8px}
+article.full p{margin:0 0 16px}
+article.full mark{background:var(--mark);color:var(--mark-ink);padding:0 3px;border-radius:2px}
+.box{background:var(--surface);border-left:5px solid var(--mark);padding:16px 20px;border-radius:0 8px 8px 0;margin:24px 0}
+.back{font-family:"Bricolage Grotesque",sans-serif;font-weight:700;background:none;border:0;color:var(--accent);font-size:16px;cursor:pointer;padding:0;text-decoration:underline}
+.sources{font-size:15px;color:var(--muted);border-top:1px solid var(--line);padding-top:14px;margin-top:30px}
+footer{border-top:1px solid var(--line);padding:28px 0;color:var(--muted);font-size:15px}
+[hidden]{display:none!important}
+@media (max-width:760px){.hero,.grid{grid-template-columns:1fr}.hero{padding-top:32px}}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap">
+  <a class="brand" href="#inicio">Morgan <span>Check</span></a>
+  <nav><a href="#inicio">Artículos</a><a href="#antes-de-compartir">Antes de compartir</a></nav>
+</div></header>
+
+<main>
+<div class="wrap">
+
+<section id="vista-inicio">
+  <div class="hero">
+    <div>
+      <h1>Aprende a dudar bien antes de compartir.</h1>
+      <p class="lead">Guías breves para reconocer bulos, noticias falsas y los sesgos de nuestra propia mente. Sin tecnicismos, con ejemplos de todos los días.</p>
+    </div>
+    <div class="claim" aria-label="Ejemplo de afirmación analizada">
+      <small>Mensaje reenviado muchas veces</small>
+      <blockquote>“<mark>Urgente: reenvía esto a todos</mark> tus contactos, lo dijo <mark>un doctor de un hospital muy importante</mark>.”</blockquote>
+      <div class="verdict"><b>Sin fuente</b><span>Urgencia y autoridad vaga: dos señales clásicas de bulo.</span></div>
+    </div>
+  </div>
+
+  <div class="grid">
+    <div class="list">
+      <h2>Últimos artículos</h2>
+      <button class="post" data-go="senales"><span class="tag">Noticias falsas</span><h3>5 señales de que una noticia puede ser falsa</h3><p>Antes de reenviar, revisa estos cinco puntos. Te toma menos de un minuto.</p><span class="meta">5 min de lectura</span></button>
+      <button class="post" data-go="confirmacion"><span class="tag">Sesgos cognitivos</span><h3>Sesgo de confirmación: por qué creemos lo que ya creíamos</h3><p>Nuestra mente busca datos que le den la razón. Así se nota y así se frena.</p><span class="meta">6 min de lectura</span></button>
+      <button class="post" data-go="whatsapp"><span class="tag">Bulos</span><h3>Cómo viaja un bulo por WhatsApp (y cómo frenarlo)</h3><p>Por qué las cadenas funcionan tan bien y qué responder cuando te llega una.</p><span class="meta">5 min de lectura</span></button>
+    </div>
+    <aside class="side" id="antes-de-compartir">
+      <h2>Antes de compartir</h2>
+      <ul>
+        <li>¿Quién lo publicó y se puede comprobar?</li>
+        <li>¿Hay fecha y fuente original?</li>
+        <li>¿Quiere que sienta enojo o miedo?</li>
+        <li>¿Lo han confirmado otros medios fiables?</li>
+        <li>Si dudas, no lo reenvíes.</li>
+      </ul>
+    </aside>
+  </div>
+</section>
+
+<article class="full" id="senales" hidden>
+  <button class="back" data-go="inicio">Volver a los artículos</button>
+  <div class="tag" style="margin-top:22px">Noticias falsas</div>
+  <h1>5 señales de que una noticia puede ser falsa</h1>
+  <div class="meta">5 min de lectura</div>
+  <p style="margin-top:22px">Nadie es inmune a un titular bien hecho. Lo que sí podemos es crear el hábito de hacer una pausa. Estas cinco señales no prueban que algo sea falso, pero sí te dicen cuándo toca investigar.</p>
+  <h2>1. Busca despertar una emoción fuerte</h2>
+  <p>Los bulos suelen provocar <mark>miedo, indignación o sorpresa</mark>. Cuando sientes el impulso de compartir de inmediato, esa reacción es justo lo que el mensaje busca.</p>
+  <h2>2. No dice quién ni dónde</h2>
+  <p>Frases como “según expertos” o “un médico reconocido” no se pueden comprobar. Una fuente seria da nombres, cargos y enlaces.</p>
+  <h2>3. No tiene fecha o está desfasada</h2>
+  <p>Muchas imágenes y notas reales se reciclan años después como si fueran actuales. Busca la fecha original del hecho.</p>
+  <h2>4. Solo aparece en un lugar</h2>
+  <p>Si algo importante ocurrió, varios medios fiables lo contarán. Escribe el titular en un buscador y mira quién más lo reporta.</p>
+  <h2>5. Pide que lo reenvíes ya</h2>
+  <p>La urgencia le quita tiempo a tu juicio. “Compártelo antes de que lo borren” es una señal clásica.</p>
+  <div class="box"><b>Prueba rápida:</b> si cumple dos o más señales, espera a verificarlo antes de compartir.</div>
+  <p class="sources">Basado en las guías de alfabetización mediática de organizaciones de verificación como Maldita.es, Newtral y la International Fact-Checking Network.</p>
+</article>
+
+<article class="full" id="confirmacion" hidden>
+  <button class="back" data-go="inicio">Volver a los artículos</button>
+  <div class="tag" style="margin-top:22px">Sesgos cognitivos</div>
+  <h1>Sesgo de confirmación: por qué creemos lo que ya creíamos</h1>
+  <div class="meta">6 min de lectura</div>
+  <p style="margin-top:22px">El sesgo de confirmación es la tendencia a <mark>buscar, recordar y creer más fácilmente la información que coincide con lo que ya pensamos</mark>. No es un defecto de gente poco informada: nos pasa a todos.</p>
+  <h2>Cómo se ve en la vida diaria</h2>
+  <p>Si crees que un producto es malo, notarás cada reseña negativa y olvidarás las positivas. Si una noticia confirma tu opinión política, la compartes sin revisarla; si la contradice, le exiges pruebas imposibles.</p>
+  <h2>Por qué ayuda a que los bulos funcionen</h2>
+  <p>Un bulo que encaja con lo que ya creemos casi no encuentra resistencia. Por eso las noticias falsas suelen estar hechas a la medida de lo que cada grupo quiere oír.</p>
+  <h2>Tres hábitos para frenarlo</h2>
+  <p><b>Busca lo contrario.</b> Antes de dar algo por cierto, busca el mejor argumento en contra.</p>
+  <p><b>Pregúntate qué te haría cambiar de opinión.</b> Si la respuesta es “nada”, es momento de sospechar de ti.</p>
+  <p><b>Aplica el mismo rigor a lo que te gusta.</b> Verifica con igual exigencia lo que apoya tu postura.</p>
+  <div class="box"><b>Ejercicio:</b> recuerda la última noticia que compartiste porque “tenía razón”. ¿La verificaste igual que habrías verificado una que te molestaba?</div>
+  <p class="sources">Concepto estudiado en psicología cognitiva desde los trabajos de Peter Wason en los años sesenta.</p>
+</article>
+
+<article class="full" id="whatsapp" hidden>
+  <button class="back" data-go="inicio">Volver a los artículos</button>
+  <div class="tag" style="margin-top:22px">Bulos</div>
+  <h1>Cómo viaja un bulo por WhatsApp (y cómo frenarlo)</h1>
+  <div class="meta">5 min de lectura</div>
+  <p style="margin-top:22px">Las cadenas funcionan porque llegan de alguien en quien confiamos: <mark>familia, amigos, el grupo del trabajo</mark>. Nadie sospecha de un mensaje que manda su tía con buena intención.</p>
+  <h2>Por qué se propagan tanto</h2>
+  <p>Combinan una emoción fuerte, una falsa autoridad y una orden de reenviar. Además, los chats son privados, así que nadie los corrige en público.</p>
+  <h2>Qué hacer cuando te llega uno</h2>
+  <p><b>1. No lo reenvíes.</b> Parar la cadena es la acción más útil.</p>
+  <p><b>2. Verifica.</b> Copia una frase del mensaje en un buscador o consulta un verificador de datos.</p>
+  <p><b>3. Responde con cariño.</b> En lugar de “eso es falso”, prueba con: “Lo busqué y parece que no es cierto, mira este enlace”. Corregir sin avergonzar funciona mejor.</p>
+  <div class="box"><b>Para recordar:</b> quien comparte un bulo casi siempre quiere ayudar. Corregir con respeto cuida la relación y la información.</div>
+  <p class="sources">Recomendaciones inspiradas en materiales educativos de verificadores como Chequeado, Colombiacheck y Animal Político.</p>
+</article>
+
+</div>
+</main>
+
+<footer><div class="wrap">Morgan Check · Educación para prevenir fake news, bulos y sesgos cognitivos.</div></footer>
+
+<script>
+(function(){
+  var ids=["senales","confirmacion","whatsapp"];
+  function show(){
+    var h=(location.hash||"").replace("#","");
+    var home=document.getElementById("vista-inicio");
+    var isArt=ids.indexOf(h)>-1;
+    home.hidden=isArt;
+    ids.forEach(function(i){document.getElementById(i).hidden=(i!==h);});
+    if(isArt){window.scrollTo(0,0);}
+    else if(h==="antes-de-compartir"){var e=document.getElementById(h);if(e)e.scrollIntoView();}
+  }
+  document.addEventListener("click",function(e){
+    var b=e.target.closest("[data-go]");
+    if(b){location.hash=b.getAttribute("data-go");}
+  });
+  window.addEventListener("hashchange",show);
+  show();
+})();
+</script>
+</body>
+</html>
